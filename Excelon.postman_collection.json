@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "d488383e-b61e-4b9b-9317-4d3bf89cbf29",
+		"name": "Excelon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30783227"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/api/auth/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\":\"testuser@example.com\",\r\n  \"password\": \"Test@1234\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login-token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjg1M2FhZTRjZDdiZGIyYWZlZmU2NTFlIn0sImlhdCI6MTc1MDMxNDAwOX0.xuG_qy7Xx7tqu-gcP74BTDsIfgLxq9Taxd_1oZh2rG0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"email\":\"testuser@example.com\",\r\n       \"password\": \"Test@1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/polls",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjg1M2FhZTRjZDdiZGIyYWZlZmU2NTFlIn0sImlhdCI6MTc1MDMxNDAwOX0.xuG_qy7Xx7tqu-gcP74BTDsIfgLxq9Taxd_1oZh2rG0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question\": \"What is your favorite games ?\",\r\n  \"options\": [\" JavaScript \"],\r\n  \"startDate\": \"2025-06-19T10:00:00.000Z\",\r\n  \"endDate\": \"2025-06-20T10:00:00.000Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/polls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"polls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/polls?status=closed",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjg1M2FhZTRjZDdiZGIyYWZlZmU2NTFlIn0sImlhdCI6MTc1MDMxNDAwOX0.xuG_qy7Xx7tqu-gcP74BTDsIfgLxq9Taxd_1oZh2rG0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question\": \"What is your favorite programming language?\",\r\n  \"options\": [\"JavaScript\", \"Python\", \"Java\", \"C++\"],\r\n  \"startDate\": \"2025-06-19T10:00:00.000Z\",\r\n  \"endDate\": \"2025-06-20T10:00:00.000Z\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/polls?status=closed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"polls"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "closed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Poll By Id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "6853b17b4d8dd3061cae77d9",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/polls/6853b17b4d8dd3061cae77d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"polls",
+						"6853b17b4d8dd3061cae77d9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update poll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjg1M2IwZTM0ZDhkZDMwNjFjYWU3N2Q2In0sImlhdCI6MTc1MDMxNTc4Nn0.fz5uYnh1vl8Hq9aTpagDuY0z5dfNmRnXRxBFafmmOws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "6853b17b4d8dd3061cae77d9",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question\": \"Updated question?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/polls/6853b17b4d8dd3061cae77d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"polls",
+						"6853b17b4d8dd3061cae77d9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the poll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjg1M2IwZTM0ZDhkZDMwNjFjYWU3N2Q2In0sImlhdCI6MTc1MDMxNTg2OX0.ZNa-Ilt_JExI4GWZYoLa5-DpcnNg2Ov5yxS8PtFVH4k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "6853b17b4d8dd3061cae77d9",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question\": \"Updated question?\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/polls/6853b17b4d8dd3061cae77d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"polls",
+						"6853b17b4d8dd3061cae77d9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create vote",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjg1M2IwZTM0ZDhkZDMwNjFjYWU3N2Q2In0sImlhdCI6MTc1MDMxNjA3NX0.dyN7ue7-Jsw5ZVNeBvU7YvHvn0CQ1rs3KcpBqIHYnXA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "6853b17b4d8dd3061cae77d9",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"optionId\": \"opt0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/polls/6853badbd12e5631d26d65a2/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"polls",
+						"6853badbd12e5631d26d65a2",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
